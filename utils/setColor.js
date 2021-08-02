@@ -19,35 +19,28 @@ const setColor = (msg = '', remote = '', branch = '', stagedFiles = '', modified
     )
     .replace(
       '(use "git restore --staged <file>..." to unstage)' + stagedFiles,
-      '(use "git restore --staged <file>..." to unstage)'.original + stagedFiles.green
+      '(use "git restore --staged <file>..." to unstage)' + stagedFiles.green
     )
     .replace(
       '(use "git restore <file>..." to discard changes in working directory)' + modifiedFiles,
-      '(use "git restore <file>..." to discard changes in working directory)'.original + modifiedFiles.red
+      '(use "git restore <file>..." to discard changes in working directory)' + modifiedFiles.red
     )
     .replace(
       '(use "git add <file>..." to include in what will be committed)' + addedFiles,
-      '(use "git add <file>..." to include in what will be committed)'.original + addedFiles.red
-    ).replace(
+      '(use "git add <file>..." to include in what will be committed)' + addedFiles.red
+    )
+    .replace(
       /fatal:/g,
       'fatal:'.yellow
-    ).replace(
+    )
+    .replace(
       /CONFLICT/g,
       'CONFLICT'.yellow
-    ).replace(
+    )
+    .replace(
       /hint:/g,
       'hint:'.yellow
     )
-
-  // let hintMessage = ''
-  // const hints = message.split('hint:')
-  // console.log('asa-1', hints.length)
-  // for (let i = 0; i < hints.length; i++) {
-  //   console.log('asa', i)
-  //   hintMessage = message.replace('hint:', 'hint:'.yellow)
-  // }
-
-  // return hintMessage
 }
 
 module.exports = setColor
