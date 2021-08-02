@@ -29,7 +29,7 @@ const setColor = (msg = '', remote = '', branch = '', stagedFiles = '', modified
       '(use "git add <file>..." to include in what will be committed)' + addedFiles,
       '(use "git add <file>..." to include in what will be committed)'.original + addedFiles.red
     ).replace(
-      /hint:/g,
+      /hint/g,
       'hint:'.yellow
     )
 }
