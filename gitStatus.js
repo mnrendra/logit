@@ -1,13 +1,13 @@
-const runCommand = require('.bin/app3/utils/runCommand')
-const getRemoteAndBranch = require('.bin/app3/utils/getRemoteAndBranch')
-const getModifiedAndAddedFiles = require('.bin/app3/utils/getModifiedAndAddedFiles')
-const setColor = require('.bin/app3/utils/setColor')
-const printMessage = require('.bin/app3/utils/printMessage')
-const handleError = require('.bin/app3/utils/handleError')
+const runCommand = require('./utils/runCommand')
+const getRemoteAndBranch = require('./utils/getRemoteAndBranch')
+const getUncommitFiles = require('./utils/getUncommitFiles')
+const setColor = require('./utils/setColor')
+const printMessage = require('./utils/printMessage')
+const handleError = require('./utils/handleError')
 
 /**
  * gitStatus: to run 'git status' command
- * @param {Function} run 
+ * @param {Function} run
  * @returns 'git status' message.
  */
 const gitStatus = async () => {
@@ -31,13 +31,13 @@ const gitStatus = async () => {
 
     // handle main condition
     if (!message.includes('nothing to commit')) {
-      // get modified and added files.
-      const [modifiedFiles, addedFiles] = getModifiedAndAddedFiles(message)
+      // get uncommit files.
+      const [stagedFiles, modifiedFiles, addedFiles] = getUncommitFiles(message)
       // set color and print final message.
-      const colorfulMessage = setColor(message, remote, branch, modifiedFiles, addedFiles)
+      const colorfulMessage = setColor(message, remote, branch, stagedFiles, modifiedFiles, addedFiles)
       printMessage(COMMAND, colorfulMessage)
       // exit by print reason message.
-      console.log(`Please 'add' and 'commit' or 'stash' your current change first!`.yellow)
+      console.log('Please \'add\' and \'commit\' or \'stash\' your current change first!'.yellow)
       process.exit()
       // eol
     } else {

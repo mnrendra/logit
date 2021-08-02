@@ -1,9 +1,9 @@
 /**
  * printMessage: to print final message.
- * @param {String} command 
- * @param {String} colorfulMessage 
+ * @param {String} command
+ * @param {String} colorfulMessage
  */
- const printMessage = (command = '', colorfulMessage = '') => {
+const printMessage = (command = '', colorfulMessage = '') => {
   console.log(`--- ${command} ---`.yellow.bold, `${'\n' + colorfulMessage}`)
 }
 

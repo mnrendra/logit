@@ -1,10 +1,10 @@
-const runCommand = require('.bin/app3/utils/runCommand')
-const printMessage = require('.bin/app3/utils/printMessage')
-const handleError = require('.bin/app3/utils/handleError')
+const runCommand = require('./utils/runCommand')
+const printMessage = require('./utils/printMessage')
+const handleError = require('./utils/handleError')
 
 /**
  * gitPull: to run 'git pull' command
- * @param {Function} run 
+ * @param {Function} run
  * @returns 'git pull' message.
  */
 const gitPull = async (remote = '', branch = '') => {

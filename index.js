@@ -1,7 +1,7 @@
 require('colors')
 
-const gitStatus = require('.bin/app3/gitStatus')
-const gitPull = require('.bin/app3/gitPull')
+const gitStatus = require('./gitStatus')
+const gitPull = require('./gitPull')
 
 const abc = async () => {
   try {

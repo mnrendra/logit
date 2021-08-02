@@ -1,9 +1,9 @@
 /**
  * getAddedFiles: to get added files.
- * @param {String} msg 
+ * @param {String} msg
  * @returns added files.
  */
- const getAddedFiles = (msg = '') => {
+const getAddedFiles = (msg = '') => {
   const _msg = msg.split('to include in what will be committed)')[1]
   if (_msg.includes('nothing added')) {
     return _msg.split('nothing added')[0]

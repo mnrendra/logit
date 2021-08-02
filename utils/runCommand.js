@@ -1,8 +1,8 @@
-const handleError = require('.bin/app3/utils/handleError')
+const handleError = require('./handleError')
 
 /**
  * runCommand: to run (execute) the command.
- * @param {String} command 
+ * @param {String} command
  * @returns [stderr, stdout] string messages.
  */
 const runCommand = async (command = '') => {

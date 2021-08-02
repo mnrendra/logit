@@ -1,9 +1,9 @@
 module.exports = {
-  runCommand: require('.bin/app3/utils/runCommand'),
+  runCommand: require('./runCommand'),
   //
   getModifiedFiles: require('./getModifiedFiles'),
   getAddedFiles: require('./getAddedFiles'),
-  getModifiedAndAddedFiles: require('./getModifiedAndAddedFiles'),
+  getUncommitFiles: require('./getUncommitFiles'),
   getRemoteAndBranch: require('./getRemoteAndBranch'),
   setColor: require('./setColor'),
   printMessage: require('./printMessage'),
