@@ -9,8 +9,14 @@
  */
 const setColor = (msg = '', remote = '', branch = '', stagedFiles = '', modifiedFiles = '', addedFiles = '') => {
   return msg
-    .replace(branch, branch.green)
-    .replace(`'${remote}/${branch}'`, `'${remote}/${branch}'`.green)
+    .replace(
+      branch,
+      branch.green
+    )
+    .replace(
+      `'${remote}/${branch}'`,
+      `'${remote}/${branch}'`.green
+    )
     .replace(
       '(use "git restore --staged <file>..." to unstage)' + stagedFiles,
       '(use "git restore --staged <file>..." to unstage)'.original + stagedFiles.green
@@ -22,6 +28,9 @@ const setColor = (msg = '', remote = '', branch = '', stagedFiles = '', modified
     .replace(
       '(use "git add <file>..." to include in what will be committed)' + addedFiles,
       '(use "git add <file>..." to include in what will be committed)'.original + addedFiles.red
+    ).replace(
+      /hint:/g,
+      'hint:'.yellow
     )
 }
 

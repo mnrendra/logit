@@ -27,7 +27,7 @@ const gitPull = async (remote = '', branch = '') => {
     const message = `${stdErr + stdOut}`
 
     if (message.includes('CONFLICT') || message.includes('fatal') || message.includes('hint: ')) {
-      console.log(message)
+      printMessage(COMMAND, message)
       console.log('Please specifying how to reconcile divergent branches first!'.yellow)
       process.exit()
     }
