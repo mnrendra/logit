@@ -1,0 +1,19 @@
+{
+  "name": "logit",
+  "version": "0.1.0",
+  "description": "My (Muhammad Rendra) LogiLab Git Script.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mnrendra/logit.git"
+  },
+  "author": "Muhammad Rendra",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mnrendra/logit/issues"
+  },
+  "homepage": "https://github.com/mnrendra/logit#readme"
+}
