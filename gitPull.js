@@ -28,6 +28,7 @@ const gitPull = async (remote = '', branch = '') => {
 
     if (message.includes('CONFLICT') || message.includes('fatal') || message.includes('hint: ')) {
       console.log(message)
+      console.log('Please \'add\' and \'commit\' or \'stash\' your current change first!'.yellow)
       process.exit()
     }
 
