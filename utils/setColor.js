@@ -8,7 +8,7 @@
  * @returns colorful message.
  */
 const setColor = (msg = '', remote = '', branch = '', stagedFiles = '', modifiedFiles = '', addedFiles = '') => {
-  const message = msg
+  return msg
     .replace(
       branch,
       branch.green
@@ -28,15 +28,26 @@ const setColor = (msg = '', remote = '', branch = '', stagedFiles = '', modified
     .replace(
       '(use "git add <file>..." to include in what will be committed)' + addedFiles,
       '(use "git add <file>..." to include in what will be committed)'.original + addedFiles.red
+    ).replace(
+      /fatal:/g,
+      'fatal:'.yellow
+    ).replace(
+      /CONFLICT/g,
+      'CONFLICT'.yellow
+    ).replace(
+      /hint:/g,
+      'hint:'.yellow
     )
 
-  let hintMessage = ''
-  const hints = message.split('hint:')
-  for (let i = 0; i < hints.length; i++) {
-    hintMessage = message.replace('hint:', 'hint:'.yellow)
-  }
+  // let hintMessage = ''
+  // const hints = message.split('hint:')
+  // console.log('asa-1', hints.length)
+  // for (let i = 0; i < hints.length; i++) {
+  //   console.log('asa', i)
+  //   hintMessage = message.replace('hint:', 'hint:'.yellow)
+  // }
 
-  return hintMessage
+  // return hintMessage
 }
 
 module.exports = setColor

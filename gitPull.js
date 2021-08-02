@@ -1,4 +1,5 @@
 const runCommand = require('./utils/runCommand')
+const setColor = require('./utils/setColor')
 const printMessage = require('./utils/printMessage')
 const handleError = require('./utils/handleError')
 
@@ -27,7 +28,8 @@ const gitPull = async (remote = '', branch = '') => {
     const message = `${stdErr + stdOut}`
 
     if (message.includes('CONFLICT') || message.includes('fatal') || message.includes('hint: ')) {
-      printMessage(COMMAND, message)
+      const colorfulMessage = setColor(message)
+      printMessage(COMMAND, colorfulMessage)
       console.log('Please specifying how to reconcile divergent branches first!'.yellow)
       process.exit()
     }
@@ -35,6 +37,7 @@ const gitPull = async (remote = '', branch = '') => {
     //
     printMessage(COMMAND, message)
   } catch (e) {
+    console.log('rusak-1')
     handleError(e)
   }
 }
